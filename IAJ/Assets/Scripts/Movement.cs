@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour {
 
-	float maxSpeed = 15f; 
+	float maxSpeed = 3f; 
 	float rotateSpeed = 2.5f;
 	Rigidbody rb;
 
@@ -15,9 +15,12 @@ public class Movement : MonoBehaviour {
 
 	InfoAgente agente;
 
+	Animator m_animator;
+
 	void Awake(){
 		rb = GetComponent<Rigidbody> ();
 		agente = GetComponent< InfoAgente> ();
+		m_animator = GetComponent<Animator> ();
 	}
 
 	void Update() {
@@ -27,11 +30,12 @@ public class Movement : MonoBehaviour {
 
 	void FixedUpdate() {
 		rb.velocity = new Vector3(velocidadX, rb.velocity.y, velocidadZ);
+		m_animator.SetFloat("MoveSpeed", rb.velocity.magnitude);
 		agente.velocidad = rb.velocity;
 		if (Input.GetKey("e")) {
-			transform.Rotate(0, -rotateSpeed, 0);
-		} else if (Input.GetKey("q")) {
 			transform.Rotate(0, rotateSpeed, 0);
+		} else if (Input.GetKey("q")) {
+			transform.Rotate(0, -rotateSpeed, 0);
 		}
 	}
 }

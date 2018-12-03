@@ -6,7 +6,7 @@ public class CollisionAvoidance : MonoBehaviour {
 
     Vector3 collisionRay;
 
-    Vector3 maxAvoidForce = new Vector3(5f, 0f, 5f);
+    Vector3 maxAvoidForce = new Vector3(15f, 0f, 15f);
 
     GameObject[] targets;
 
@@ -20,7 +20,7 @@ public class CollisionAvoidance : MonoBehaviour {
 	protected Steering steering;
 
     void Start() {
-		targets = GameObject.FindGameObjectsWithTag("Player");
+		targets = GameObject.FindGameObjectsWithTag("Wall");
         collisionDetector = GetComponent<CollisionDetector> ();
         steering = new Steering();
 		steering.isKinematic = false;

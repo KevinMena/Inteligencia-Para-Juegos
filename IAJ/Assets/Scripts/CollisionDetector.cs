@@ -5,8 +5,8 @@ using UnityEditor;
 
 public class CollisionDetector : MonoBehaviour {
 
-	float lookAhead = 5f;
-	float lookSide = 4f;
+	float lookAhead = 2f;
+	float lookSide = 1f;
 
 	float targetRadius = 1f;
 
@@ -48,15 +48,12 @@ public class CollisionDetector : MonoBehaviour {
 
 	public Vector3 intersectRay(Vector3 center) {
 		if (lineIntersectsCircle(transform.position, ray1End, center, targetRadius)) {
-			Debug.Log("Colisiono con ray1");
 			return ray1;
 		}
 		if (lineIntersectsCircle(transform.position, ray2End, center, targetRadius)) {
-			Debug.Log("Colisiono con ray2");
 			return ray2;
 		}
 		if (lineIntersectsCircle(transform.position, ray3End, center, targetRadius)) {
-			Debug.Log("Colisiono con ray3");
 			return ray3;
 		}
 

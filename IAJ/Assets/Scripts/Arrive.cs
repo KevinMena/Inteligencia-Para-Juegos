@@ -2,29 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Arrive : MonoBehaviour {
+public class Arrive : Behaviours {
 
-	float maxAcc = 2.5f;
-	float targetRadius = 3f;
+	float maxAcc = 50f;
+	float targetRadius = 0.1f;
 
-	float slowRadius = 5f;
+	float slowRadius = 0.3f;
 
 	float timeToTarget = 0.1f;
-	public GameObject target;
-	protected GameObject character;
 
-	protected InfoAgente agente;
-
-	protected Steering steering;
-
-	void Awake() {
-		steering = new Steering();
-		character = this.gameObject;
-		agente = GetComponent<InfoAgente> ();
-		steering.isKinematic = false;
+	void Start() {
+		Init();
 	}
 
-	public Steering getSteering() {
+	public override void Init() {
+		base.Init();
+	}
+
+	public override Steering getSteering() {
 		Vector3 direction = target.transform.position - character.transform.position;
 		float distance = direction.magnitude;
 		float targetSpeed = 0.0f;
@@ -54,7 +49,7 @@ public class Arrive : MonoBehaviour {
 		return steering;
 	}
 
-	void Update() {
+	 void Update() {
 		agente.UpdateInfo(getSteering());
 	}
 }

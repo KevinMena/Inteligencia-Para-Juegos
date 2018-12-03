@@ -51,24 +51,40 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\ObstacleAvoidance.cs" />
+     <Compile Include="Assets\CanSeeEvilClone.cs" />
+     <Compile Include="Assets\Condition.cs" />
+     <Compile Include="Assets\DSeeEvilClone.cs" />
+     <Compile Include="Assets\Patrolling.cs" />
+     <Compile Include="Assets\RunFrom.cs" />
+     <Compile Include="Assets\Scripts\AEstrella.cs" />
      <Compile Include="Assets\Scripts\Align.cs" />
      <Compile Include="Assets\Scripts\Arrive.cs" />
+     <Compile Include="Assets\Scripts\Behaviours.cs" />
+     <Compile Include="Assets\Scripts\BlendedSteering.cs" />
      <Compile Include="Assets\Scripts\CollisionAvoidance.cs" />
      <Compile Include="Assets\Scripts\CollisionDetector.cs" />
      <Compile Include="Assets\Scripts\Face.cs" />
+     <Compile Include="Assets\Scripts\Flee.cs" />
+     <Compile Include="Assets\Scripts\Grafo.cs" />
      <Compile Include="Assets\Scripts\InfoAgente.cs" />
      <Compile Include="Assets\Scripts\KiArrive.cs" />
      <Compile Include="Assets\Scripts\KiSeek.cs" />
      <Compile Include="Assets\Scripts\KiWander.cs" />
+     <Compile Include="Assets\Scripts\Lado.cs" />
      <Compile Include="Assets\Scripts\LookWhereYoureGoing.cs" />
      <Compile Include="Assets\Scripts\Movement.cs" />
+     <Compile Include="Assets\Scripts\Path.cs" />
+     <Compile Include="Assets\Scripts\PathFollowing.cs" />
      <Compile Include="Assets\Scripts\Pursue.cs" />
      <Compile Include="Assets\Scripts\Seek.cs" />
      <Compile Include="Assets\Scripts\Separation.cs" />
      <Compile Include="Assets\Scripts\Steering.cs" />
      <Compile Include="Assets\Scripts\VelocityMatch.cs" />
+     <Compile Include="Assets\Scripts\Vertice.cs" />
      <Compile Include="Assets\Scripts\Wander.cs" />
+     <Compile Include="Assets\State.cs" />
+     <Compile Include="Assets\StateMachine.cs" />
+     <Compile Include="Assets\Transition.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

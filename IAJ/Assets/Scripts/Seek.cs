@@ -2,20 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Seek : MonoBehaviour {
-	float maxAcc = 7.5f;
-	public GameObject target;
-	protected GameObject character;
-
-	protected InfoAgente agente;
-
-	protected Steering steering;
+public class Seek : Behaviours {
+	float maxAcc = 50f;
 
 	void Start() {
-		steering = new Steering();
-		steering.isKinematic = false;
-		character = this.gameObject;
-		agente = GetComponent<InfoAgente> ();
+		base.Init();
 	}
 
 	public float getNewOrientation (float currentOrientation, Vector3 velocity) {
@@ -26,8 +17,8 @@ public class Seek : MonoBehaviour {
 			return currentOrientation;
 		}
 	}
-
-	public virtual Steering getSteering() {
+	
+	public override Steering getSteering() {
 		steering.linear = target.transform.position - this.transform.position;
 		steering.linear.Normalize();
 		steering.linear *= maxAcc;

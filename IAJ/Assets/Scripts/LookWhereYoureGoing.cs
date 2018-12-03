@@ -9,20 +9,19 @@ public class LookWhereYoureGoing : Align {
     }
 
     public override void Init() {
-        base.Init();
-        target = new GameObject();
-        target.AddComponent<InfoAgente> ();
-    }
+		base.Init();
+	}
 
     public override Steering getSteering() {
         if(agente.velocidad.magnitude > 0.0f) {
            this.GetComponent<InfoAgente>().orientacion = Mathf.Atan2(agente.velocidad.x, agente.velocidad.z) * Mathf.Rad2Deg;
+
+           return base.getSteering();
         }
 
-
-        return base.getSteering();
+        return new Steering();
 	}
-
+    
 	void Update() {
 		agente.UpdateInfo(getSteering());
 	}

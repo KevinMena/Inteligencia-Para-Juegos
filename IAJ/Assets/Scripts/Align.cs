@@ -2,31 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Align : MonoBehaviour {
+public class Align : Behaviours {
 
 	float maxAngularAcc= 5f;
 	float maxRotation = 50f;
-	float targetRadius = 3.5f;
+	float targetRadius = 0.5f;
 
-	float slowRadius = 5f;
+	float slowRadius = 1f;
 
 	float timeToTarget = 0.1f;
-	public GameObject target;
-	protected GameObject character;
-
-	protected InfoAgente agente;
-
-	protected Steering steering;
 
 	void Start() {
-		Init();
-	}
-
-	public virtual void Init() {
-		steering = new Steering();
-		character = this.gameObject;
-		agente = GetComponent<InfoAgente> ();
-		steering.isKinematic = false;
+		base.Init();
 	}
 
 	public float mapToRange (float rotation) {
@@ -40,12 +27,12 @@ public class Align : MonoBehaviour {
 		return rotation;
 	}
 
-	public virtual Steering getSteering() {
+	public override Steering getSteering() {
 		float rotation = target.transform.eulerAngles.y - agente.orientacion;
 		rotation = mapToRange(rotation);
 		float rotationSize = Mathf.Abs(rotation);
 		float targetRotation = 0.0f;
-
+		
 		if (rotationSize < targetRadius) {
 			return new Steering();
 		}
